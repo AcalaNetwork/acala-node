@@ -16,29 +16,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+use polkadot_parachain_lib::chain_spec::{GenericChainSpec, LoadSpec};
 use sc_chain_spec::ChainSpec;
-use polkadot_parachain_lib::{
-	chain_spec::{GenericChainSpec, LoadSpec},
-	runtime::{AuraConsensusId, Consensus, Runtime, RuntimeResolver as RuntimeResolverT},
-};
 
 #[derive(Debug)]
 pub(crate) struct ChainSpecLoader;
 impl LoadSpec for ChainSpecLoader {
-	fn load_spec(&self, id: &str) -> Result<Box<dyn ChainSpec>, String> {
+    fn load_spec(&self, id: &str) -> Result<Box<dyn ChainSpec>, String> {
         Ok(match id {
-            "" | "acala" => Box::new(GenericChainSpec::from_json_bytes(include_bytes!("../chainspecs/acala-dist.json"))?),
-            "karura" => Box::new(GenericChainSpec::from_json_bytes(include_bytes!("../chainspecs/karura-dist.json"))?),
+            "" | "acala" => Box::new(GenericChainSpec::from_json_bytes(include_bytes!(
+                "../chainspecs/acala-dist.json"
+            ))?),
+            "karura" => Box::new(GenericChainSpec::from_json_bytes(include_bytes!(
+                "../chainspecs/karura-dist.json"
+            ))?),
             path => Box::new(GenericChainSpec::from_json_file(path.into())?),
         })
     }
-}
-
-#[derive(Debug)]
-pub(crate) struct RuntimeResolver;
-
-impl RuntimeResolverT for RuntimeResolver {
-	fn runtime(&self, _chain_spec: &dyn ChainSpec) -> sc_cli::Result<Runtime> {
-        Ok(Runtime::Omni(Consensus::Aura(AuraConsensusId::Sr25519)))
-	}
 }

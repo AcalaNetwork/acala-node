@@ -21,11 +21,11 @@ mod chain_spec;
 use polkadot_parachain_lib::{run, CommandConfig};
 
 fn main() -> color_eyre::eyre::Result<()> {
-	color_eyre::install()?;
+    color_eyre::install()?;
 
     let config = CommandConfig {
-		chain_spec_loader: Some(Box::new(chain_spec::ChainSpecLoader)),
-		runtime_resolver: Some(Box::new(chain_spec::RuntimeResolver)),
-	};
-	Ok(run(config)?)
+        chain_spec_loader: Some(Box::new(chain_spec::ChainSpecLoader)),
+        runtime_resolver: None,
+    };
+    Ok(run(config)?)
 }
