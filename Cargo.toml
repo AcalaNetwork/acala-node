@@ -1,0 +1,13 @@
+[package]
+name = "acala-node"
+authors = ["Acala Developers"]
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+color-eyre = "0.6.3"
+
+# TODO: update to a released version once available
+polkadot-parachain-lib = { git = "https://github.com/serban300/polkadot-sdk", branch = "polkadot-parachain-lib" }
+sc-chain-spec = { git = "https://github.com/serban300/polkadot-sdk", branch = "polkadot-parachain-lib" }
+sc-cli = { git = "https://github.com/serban300/polkadot-sdk", branch = "polkadot-parachain-lib" }
