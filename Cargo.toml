@@ -4,6 +4,10 @@ authors = ["Acala Developers"]
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "acala"
+path = "src/main.rs"
+
 [dependencies]
 color-eyre = { version = "0.6.3", default-features = false }
 
@@ -11,3 +15,11 @@ color-eyre = { version = "0.6.3", default-features = false }
 polkadot-parachain-lib = { git = "https://github.com/serban300/polkadot-sdk", branch = "polkadot-parachain-lib" }
 sc-chain-spec = { git = "https://github.com/serban300/polkadot-sdk", branch = "polkadot-parachain-lib" }
 sc-cli = { git = "https://github.com/serban300/polkadot-sdk", branch = "polkadot-parachain-lib" }
+
+[build-dependencies]
+substrate-build-script-utils = "11.0.0"
+orml-build-script-utils = "1.0.0"
+
+[profile.release]
+lto = true
+codegen-units = 1

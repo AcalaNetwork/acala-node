@@ -17,9 +17,11 @@ name = "acala-node"
 version = "0.1.0"
 dependencies = [
  "color-eyre",
+ "orml-build-script-utils",
  "polkadot-parachain-lib",
  "sc-chain-spec",
  "sc-cli",
+ "substrate-build-script-utils 11.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -6283,6 +6285,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "orml-build-script-utils"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6630d0e9fbb643c2a5ac40501843b3ae14ccd0172296a8b0d1e445975b9d540c"
+dependencies = [
+ "walkdir",
+]
+
+[[package]]
 name = "overload"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7806,7 +7817,7 @@ dependencies = [
  "sp-keyring",
  "sp-maybe-compressed-blob",
  "sp-runtime",
- "substrate-build-script-utils",
+ "substrate-build-script-utils 11.0.0 (git+https://github.com/serban300/polkadot-sdk?branch=polkadot-parachain-lib)",
  "thiserror",
 ]
 
@@ -8488,7 +8499,7 @@ dependencies = [
  "sp-timestamp",
  "sp-transaction-pool",
  "sp-version",
- "substrate-build-script-utils",
+ "substrate-build-script-utils 11.0.0 (git+https://github.com/serban300/polkadot-sdk?branch=polkadot-parachain-lib)",
  "substrate-frame-rpc-system",
  "substrate-prometheus-endpoint",
  "substrate-state-trie-migration-rpc",
@@ -13118,6 +13129,12 @@ dependencies = [
  "sha2 0.10.8",
  "zeroize",
 ]
+
+[[package]]
+name = "substrate-build-script-utils"
+version = "11.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b285e7d183a32732fdc119f3d81b7915790191fad602b7c709ef247073c77a2e"
 
 [[package]]
 name = "substrate-build-script-utils"
