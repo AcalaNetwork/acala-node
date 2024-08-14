@@ -14,7 +14,7 @@ LABEL maintainer="hello@acala.network"
 COPY --from=builder /acala/target/release/acala /usr/local/bin
 
 USER root
-RUN useradd -m -u 1001 -U -s /bin/sh -d /acala acala && \
+RUN useradd -m -u 1000 -U -s /bin/sh -d /acala acala && \
 	mkdir -p /acala/data /acala/.local/share && \
 	chown -R acala:acala /acala/data && \
 	ln -s /acala/data /acala/.local/share/acala && \
