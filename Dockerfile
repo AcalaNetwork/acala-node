@@ -8,7 +8,7 @@ RUN cargo build --locked --release
 
 # =============
 
-FROM phusion/baseimage:noble-1.0.0
+FROM phusion/baseimage:focal-1.2.0
 LABEL maintainer="hello@acala.network"
 
 RUN useradd -m -u 1000 -U -s /bin/sh -d /acala acala
