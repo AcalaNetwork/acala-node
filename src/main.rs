@@ -18,14 +18,33 @@
 
 mod chain_spec;
 
-use polkadot_parachain_lib::{run, CommandConfig};
+use polkadot_parachain_lib::{run, runtime::DefaultRuntimeResolver, CliConfig, RunConfig};
+
+struct AcalaCliConfig;
+impl CliConfig for AcalaCliConfig {
+    fn impl_version() -> String {
+        env!("CARGO_PKG_VERSION").into()
+    }
+
+    fn author() -> String {
+        "Acala Developers".into()
+    }
+
+    fn support_url() -> String {
+        "https://github.com/AcalaNetwork/Acala/issues/new/choose".into()
+    }
+
+    fn copyright_start_year() -> u16 {
+        2020
+    }
+}
 
 fn main() -> color_eyre::eyre::Result<()> {
     color_eyre::install()?;
 
-    let config = CommandConfig {
-        chain_spec_loader: Some(Box::new(chain_spec::ChainSpecLoader)),
-        runtime_resolver: None,
+    let config = RunConfig {
+        chain_spec_loader: Box::new(chain_spec::ChainSpecLoader),
+        runtime_resolver: Box::new(DefaultRuntimeResolver),
     };
-    Ok(run(config)?)
+    Ok(run::<AcalaCliConfig>(config)?)
 }

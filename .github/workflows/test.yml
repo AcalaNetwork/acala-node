@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [self-hosted]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install toolchain
+      uses: dtolnay/rust-toolchain@nightly
+    - name: Install Wasm toolchain
+      run: rustup target add wasm32-unknown-unknown
+    - name: Check format
+      run: cargo fmt --check
+    - name: Install clippy
+      run: rustup component add clippy
+    - name: Run clippy
+      run: cargo clippy -- -D warnings
+    - name: Check
+      run: cargo check
