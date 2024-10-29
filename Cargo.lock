@@ -14,7 +14,7 @@ dependencies = [
 
 [[package]]
 name = "acala-node"
-version = "0.1.0"
+version = "3.0.0"
 dependencies = [
  "color-eyre",
  "orml-build-script-utils",
