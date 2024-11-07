@@ -11,7 +11,6 @@ path = "src/main.rs"
 [dependencies]
 color-eyre = { version = "0.6.3", default-features = false }
 
-# TODO: update to a released version once available
 polkadot-parachain-lib = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409" }
 sc-chain-spec = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409" }
 sc-cli = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2409" }
