@@ -18,6 +18,7 @@ sc-cli = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2
 [build-dependencies]
 substrate-build-script-utils = "11.0.0"
 orml-build-script-utils = "1.0.0"
+ureq = "2.12.1"
 
 [profile.release]
 lto = true
