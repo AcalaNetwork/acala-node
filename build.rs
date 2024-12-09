@@ -17,7 +17,6 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 use std::fs;
-use std::io::Write;
 use std::path::Path;
 
 fn main() {
