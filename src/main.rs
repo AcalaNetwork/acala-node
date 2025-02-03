@@ -18,7 +18,7 @@
 
 mod chain_spec;
 
-use polkadot_parachain_lib::{run, runtime::DefaultRuntimeResolver, CliConfig, RunConfig};
+use polkadot_omni_node_lib::{run, runtime::DefaultRuntimeResolver, CliConfig, RunConfig};
 
 struct AcalaCliConfig;
 impl CliConfig for AcalaCliConfig {
