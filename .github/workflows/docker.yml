@@ -20,7 +20,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: acala/acala-node-beta
+          images: acala/acala-node
           tags: |
             type=ref,event=branch
             type=ref,event=pr

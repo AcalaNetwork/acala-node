@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-use polkadot_parachain_lib::chain_spec::{GenericChainSpec, LoadSpec};
+use polkadot_omni_node_lib::chain_spec::{GenericChainSpec, LoadSpec};
 use sc_chain_spec::ChainSpec;
 
 #[derive(Debug)]

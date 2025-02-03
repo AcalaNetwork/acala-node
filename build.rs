@@ -40,9 +40,9 @@ fn main() {
     for (filename, url) in files.iter() {
         let path = Path::new(out_dir).join(filename);
         if !path.exists() {
-            let response = ureq::get(url).call().expect("Failed to fetch chainspec");
+            let mut response = ureq::get(*url).call().expect("Failed to fetch chainspec");
             let mut file = fs::File::create(&path).expect("Failed to create file");
-            let mut reader = response.into_reader();
+            let mut reader = response.body_mut().as_reader();
             std::io::copy(&mut reader, &mut file).expect("Failed to copy data");
         }
     }
